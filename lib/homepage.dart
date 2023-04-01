@@ -153,7 +153,6 @@ class _HomePageState extends State<HomePage> {
         });
   }
 
-  final _forkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -213,7 +212,8 @@ class _HomePageState extends State<HomePage> {
                             child: IconButton(
                                 color: Colors.white54,
                                 onPressed: () {
-                                  _addTaskController.text = todos[index].task ?? '';
+                                  _addTaskController.text =
+                                      todos[index].task ?? '';
                                   _displayTextInputDialog(
                                     context,
                                     isForUpdate: true,

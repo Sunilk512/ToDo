@@ -67,16 +67,16 @@ class FirebaseHelper {
       }
 
       if (userdocument.docs.isNotEmpty) {
-        final docmentId = userdocument.docs.first.id;
+        final documentId = userdocument.docs.first.id;
 
         final oldTodotasks =
-            TodoListResonse.fromJson(userdocument.docs.first.data())
+            TodoListResponse.fromJson(userdocument.docs.first.data())
                 .todoList
                 .map((e) => e.toJson())
                 .toList();
 
         oldTodotasks.add(task.toJson());
-        await todoCollection.doc(docmentId).update(<String, dynamic>{
+        await todoCollection.doc(documentId).update(<String, dynamic>{
           'todos': oldTodotasks,
         });
         return 'success';
@@ -101,10 +101,10 @@ class FirebaseHelper {
           await todoCollection.where('user_id', isEqualTo: user?.uid).get();
 
       if (userdocument.docs.isNotEmpty) {
-        final docmentId = userdocument.docs.first.id;
+        final documentId = userdocument.docs.first.id;
 
         final oldTodotasks =
-            TodoListResonse.fromJson(userdocument.docs.first.data())
+            TodoListResponse.fromJson(userdocument.docs.first.data())
                 .todoList
                 .map((element) {
           log('ELEMENT ${element.id == task.id}');
@@ -114,7 +114,7 @@ class FirebaseHelper {
           return element.toJson();
         }).toList();
 
-        await todoCollection.doc(docmentId).update(<String, dynamic>{
+        await todoCollection.doc(documentId).update(<String, dynamic>{
           'todos': oldTodotasks,
         });
         return 'success';
@@ -139,10 +139,10 @@ class FirebaseHelper {
           await todoCollection.where('user_id', isEqualTo: user?.uid).get();
 
       if (userdocument.docs.isNotEmpty) {
-        final docmentId = userdocument.docs.first.id;
+        final documentId = userdocument.docs.first.id;
 
         final oldTodotasks =
-            TodoListResonse.fromJson(userdocument.docs.first.data())
+            TodoListResponse.fromJson(userdocument.docs.first.data())
                 .todoList
                 .where((element) {
                   return element.id != id;
@@ -150,7 +150,7 @@ class FirebaseHelper {
                 .map((e) => e.toJson())
                 .toList();
 
-        await todoCollection.doc(docmentId).update(<String, dynamic>{
+        await todoCollection.doc(documentId).update(<String, dynamic>{
           'todos': oldTodotasks,
         });
         return 'success';
@@ -165,7 +165,7 @@ class FirebaseHelper {
     }
   }
 
-  static Future<TodoListResonse> get getUserTodo async {
+  static Future<TodoListResponse> get getUserTodo async {
     try {
       final user = FirebaseAuth.instance.currentUser;
 
@@ -175,16 +175,16 @@ class FirebaseHelper {
           await todoCollection.where('user_id', isEqualTo: user?.uid).get();
 
       if (userdocument.docs.isEmpty) {
-        return TodoListResonse();
+        return TodoListResponse();
       }
 
-      return TodoListResonse.fromJson(userdocument.docs.first.data());
+      return TodoListResponse.fromJson(userdocument.docs.first.data());
     } on FirebaseException catch (e) {
       log('FIREBASE ERRROR ${e.message}');
-      return TodoListResonse();
+      return TodoListResponse();
     } catch (e) {
       log('ERRORRRRR $e');
-      return TodoListResonse();
+      return TodoListResponse();
     }
   }
 }

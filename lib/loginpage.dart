@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:to_do_list_with_firebase/signupage.dart';
@@ -78,17 +77,16 @@ class _LoginState extends State<Login> {
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      focusedErrorBorder:OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
-                      
-                    ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.red)),
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey)),
-                          border: InputBorder.none,
-                          filled: true,
-                          fillColor: Colors.grey.withOpacity(0.1),
+                      border: InputBorder.none,
+                      filled: true,
+                      fillColor: Colors.grey.withOpacity(0.1),
                       labelText: "Enter Email",
                       labelStyle: TextStyle(color: Colors.white),
                       hintText: "Enter Your Email",
@@ -108,17 +106,16 @@ class _LoginState extends State<Login> {
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      focusedErrorBorder:OutlineInputBorder(
+                      focusedErrorBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.red),
-                        
                       ),
                       errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.red)),
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey)),
-                          border: InputBorder.none,
-                          filled: true,
-                          fillColor: Colors.grey.withOpacity(0.1),
+                      border: InputBorder.none,
+                      filled: true,
+                      fillColor: Colors.grey.withOpacity(0.1),
                       labelText: "Enter Password",
                       labelStyle: TextStyle(color: Colors.white),
                       hintText: "Enter Your Password",
@@ -171,8 +168,7 @@ class _LoginState extends State<Login> {
                         },
                         child: Text(
                           "Don't Have Account ?",
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 15),
+                          style: TextStyle(color: Colors.white, fontSize: 15),
                         )),
                   ),
                 ],
