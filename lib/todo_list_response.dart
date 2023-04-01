@@ -1,13 +1,13 @@
 import 'package:to_do_list_with_firebase/todo_task.dart';
 
-class TodoListResonse {
+class TodoListResponse {
   List<TodoTask>? todos;
 
-  TodoListResonse({
+  TodoListResponse({
     this.todos,
   });
 
-  TodoListResonse.fromJson(Map<String, dynamic> json) {
+  TodoListResponse.fromJson(Map<String, dynamic> json) {
     if (json['todos'] != null) {
       todos = <TodoTask>[];
       json['todos'].forEach((v) {
